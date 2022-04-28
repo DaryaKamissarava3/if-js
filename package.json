@@ -1,0 +1,33 @@
+{
+  "name": "if-js-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "prettier": "prettier --write src/**/*.js",
+    "lint": "eslint --debug src/",
+    "lint:write": "eslint --debug src/ --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaryaKamissarava3/if-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaryaKamissarava3/if-js/issues"
+  },
+  "homepage": "https://github.com/DaryaKamissarava3/if-js#readme",
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "prettier": "2.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "dependencies": {
+    "husky": "^7.0.4"
+  }
+}
