@@ -1,16 +1,16 @@
-let user = 'John Doe';
+let user = 'John Doe'
 console.log(user);
 const student = 'Darya';
 console.log(student);
-user = student;// Darya
+user = student; // Darya
 console.log(user);
 let test = 1;
 test += test;
-test = `${test}1`;// 21
+test = `${test}1`; // 21
 console.log(test);
-test--;// 20
+test--; // 20
 console.log(test);
-test = Boolean(test);// true
+test = Boolean(test); // true
 console.log(test);
 const arr = [2, 3, 5, 8];
 let result = 1;

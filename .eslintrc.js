@@ -11,6 +11,7 @@ module.exports = {
         'react'
     ],
     rules: {
+        "prefer-const":"error",
         "no-console": "off",
         "no-plusplus": "off",
         "eol-last": "off",
