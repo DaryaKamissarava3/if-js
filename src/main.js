@@ -1,36 +1,54 @@
-let user = 'John Doe'
-console.log(user);
-const student = 'Darya';
-console.log(student);
-user = student; // Darya
-console.log(user);
-let test = 1;
-test += test;
-test = `${test}1`; // 21
-console.log(test);
-test--; // 20
-console.log(test);
-test = Boolean(test); // true
-console.log(test);
-
-const arr = [2, 3, 5, 8];
-let result = 1;
-
-for (let i = 0; i < arr.length; i++) {
-  result *= arr[i];
-}
-
-console.log(result);
-const arr2 = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < arr2.length; i++) {
-  if (arr2[i] > 5 && arr2[i] < 10) {
-    console.log(arr2[i]);
+function palindrome(str) {
+  const changeString = str.toLowerCase();
+  const reverseString = changeString.split('').reverse().join('');
+  if (changeString === reverseString) {
+    return true;
+  } else {
+    return false;
   }
 }
 
-for (let i = 0; i < arr2.length; i++) {
-  if (arr2[i] % 2 === 0) {
-    console.log(arr2[i]);
+console.log(palindrome('ctc'));
+
+function min(a, b) {
+  if (a > b) {
+    return b;
+  } else {
+    return a;
   }
 }
+
+function max(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+
+function max2(a, b) {
+  return a > b ? a : b;
+}
+
+function min2(a, b) {
+  return a > b ? b : a;
+}
+
+console.log(max(3, 5));
+console.log(min(3, 5));
+console.log(max2(3, 5));
+console.log(min2(3, 5));
+
+const array = [];
+
+function fillArray(arr) {
+  for (let i = 0; i < 10; i++) {
+    const randomElement = Math.round(Math.random() * 100);
+    arr.push(randomElement);
+  }
+  return arr;
+}
+
+const replaceZero = (arr) => String(arr).replaceAll('0', 'zero');
+console.log(fillArray(array));
+console.log(replaceZero(array));

@@ -14,6 +14,7 @@ module.exports = {
         "prefer-const":"error",
         "no-console": "off",
         "no-plusplus": "off",
+        "no-else-return":"off",
         "eol-last": "off",
         "max-len": ["error", 100, {"ignoreUrls": true}],
     },
