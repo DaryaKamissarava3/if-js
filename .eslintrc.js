@@ -15,6 +15,8 @@ module.exports = {
         "no-console": "off",
         "no-plusplus": "off",
         "eol-last": "off",
+        "no-param-reassign":"off",
+        "import/prefer-default-export":"off",
         "max-len": ["error", 100, {"ignoreUrls": true}],
     },
     parserOptions: {
