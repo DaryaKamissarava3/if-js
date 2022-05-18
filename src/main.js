@@ -1,36 +1,69 @@
-let user = 'John Doe'
-console.log(user);
-const student = 'Darya';
-console.log(student);
-user = student; // Darya
-console.log(user);
-let test = 1;
-test += test;
-test = `${test}1`; // 21
-console.log(test);
-test--; // 20
-console.log(test);
-test = Boolean(test); // true
-console.log(test);
+function splitString(stringToSplit, separator) {
+  const arrayOfStrings = stringToSplit.split(separator);
 
-const arr = [2, 3, 5, 8];
-let result = 1;
-
-for (let i = 0; i < arr.length; i++) {
-  result *= arr[i];
+  return arrayOfStrings.join('.');
 }
 
-console.log(result);
-const arr2 = [2, 5, 8, 15, 0, 6, 20, 3];
+const date = '2020-11-26';
+const secondDate = '2022-05-11';
 
-for (let i = 0; i < arr2.length; i++) {
-  if (arr2[i] > 5 && arr2[i] < 10) {
-    console.log(arr2[i]);
-  }
+const symbol = '-';
+
+console.log(splitString(date, symbol));
+console.log(splitString(secondDate, symbol));
+
+const data = [
+  {
+    country: 'Russia',
+    city: 'Saint Petersburg',
+    hotel: 'Hotel Leopold',
+  },
+  {
+    country: 'Spain',
+    city: 'Santa Cruz de Tenerife',
+    hotel: 'Apartment Sunshine',
+  },
+  {
+    country: 'Slowakia',
+    city: 'Vysokie Tatry',
+    hotel: 'Villa Kunerad',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hostel Friendship',
+  },
+  {
+    country: 'Indonesia',
+    city: 'Bali',
+    hotel: 'Ubud Bali Resort&SPA',
+  },
+  {
+    country: 'Netherlands',
+    city: 'Rotterdam',
+    hotel: 'King Kong Hostel',
+  },
+  {
+    country: 'Marocco',
+    city: 'Ourika',
+    hotel: 'Rokoko Hotel',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hotel Rehberge Berlin Mitte',
+  },
+];
+
+function searchInformation(str) {
+  const resultOfSearch = data.filter(function (element) {
+    const newList = Object.values(element);
+    return newList.includes(str);
+  });
+  resultOfSearch.forEach(function (item) {
+    console.log(item);
+  });
 }
 
-for (let i = 0; i < arr2.length; i++) {
-  if (arr2[i] % 2 === 0) {
-    console.log(arr2[i]);
-  }
-}
+searchInformation('Berlin');
+searchInformation('Rokoko Hotel');
