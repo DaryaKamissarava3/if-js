@@ -1,6 +1,5 @@
 function palindrome(str) {
-
-    return str === str.split('').reverse().join('') ? "true" : "false";
+  return str === str.split('').reverse().join('');
 }
 
-console.log(palindrome("ctc"));
+console.log(palindrome('ctc'));
