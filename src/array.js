@@ -156,11 +156,11 @@ const hotels = [
   },
 ];
 
-function showInformation(str,arr) {
-  return arr.filter((hotel) => hotel.country === str || hotel.city === str || hotel.name === str);
+function showInformation(str, arrOfHotels) {
+  return arrOfHotels.filter((hotel) => hotel.country === str || hotel.city === str || hotel.name === str);
 }
 
 const searchItem1 = 'Germany';
-console.log(showInformation(searchItem1,hotels));
+console.log(showInformation(searchItem1, hotels));
 const searchItem2 = 'Hamburg';
-console.log(showInformation(searchItem2,hotels));
+console.log(showInformation(searchItem2, hotels));
