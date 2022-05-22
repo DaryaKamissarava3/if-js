@@ -2,158 +2,158 @@ const hotels = [
   {
     name: 'Hotel Leopold',
     city: 'Saint Petersburg',
-    country: 'Russia',
+    country: 'Russia'
   },
   {
     name: 'Apartment Sunshine',
     city: 'Santa Cruz de Tenerife',
-    country: 'Spain',
+    country: 'Spain'
   },
   {
     name: 'Villa Kunerad',
     city: 'Vysokie Tatry',
-    country: 'Slowakia',
+    country: 'Slowakia'
   },
   {
     name: 'Hostel Friendship',
     city: 'Berlin',
-    country: 'Germany',
+    country: 'Germany'
   },
   {
     name: 'Steigenberger Hotel',
     city: 'Hamburg',
-    country: 'Germany',
+    country: 'Germany'
   },
   {
     name: 'Radisson Blu Hotel',
     city: 'Kyiv',
-    country: 'Ukraine',
+    country: 'Ukraine'
   },
   {
     name: 'Paradise Hotel',
     city: 'Guadalupe',
-    country: 'Mexico',
+    country: 'Mexico'
   },
   {
     name: 'Hotel Grindewald',
     city: 'Interlaken',
-    country: 'Switzerland',
+    country: 'Switzerland'
   },
   {
     name: 'The Andaman Resort',
     city: 'Port Dickson',
-    country: 'Malaysia',
+    country: 'Malaysia'
   },
   {
     name: 'Virgin Hotel',
     city: 'Chicago',
-    country: 'USA',
+    country: 'USA'
   },
   {
     name: 'Grand Beach Resort',
     city: 'Dubai',
-    country: 'United Arab Emirates',
+    country: 'United Arab Emirates'
   },
   {
     name: 'Shilla Stay',
     city: 'Seoul',
-    country: 'South Korea',
+    country: 'South Korea'
   },
   {
     name: 'San Firenze Suites',
     city: 'Florence',
-    country: 'Italy',
+    country: 'Italy'
   },
   {
     name: 'The Andaman Resort',
     city: 'Port Dickson',
-    country: 'Malaysia',
+    country: 'Malaysia'
   },
   {
     name: 'Black Penny Villas',
     city: 'BTDC, Nuca Dua',
-    country: 'Indonesia',
+    country: 'Indonesia'
   },
   {
     name: 'Koko Hotel',
     city: 'Tokyo',
-    country: 'Japan',
+    country: 'Japan'
   },
   {
     name: 'Ramada Plaza',
     city: 'Istanbul',
-    country: 'Turkey',
+    country: 'Turkey'
   },
   {
     name: 'Waikiki Resort Hotel',
     city: 'Hawaii',
-    country: 'USA',
+    country: 'USA'
   },
   {
     name: 'Puro Hotel',
     city: 'Krakow',
-    country: 'Poland',
+    country: 'Poland'
   },
   {
     name: 'Asma Suites',
     city: 'Santorini',
-    country: 'Greece',
+    country: 'Greece'
   },
   {
     name: 'Cityden Apartments',
     city: 'Amsterdam',
-    country: 'Netherlands',
+    country: 'Netherlands'
   },
   {
     name: 'Mandarin Oriental',
     city: 'Miami',
-    country: 'USA',
+    country: 'USA'
   },
   {
     name: 'Concept Terrace Hotel',
     city: 'Rome',
-    country: 'Italy',
+    country: 'Italy'
   },
   {
     name: 'Ponta Mar Hotel',
     city: 'Fortaleza',
-    country: 'Brazil',
+    country: 'Brazil'
   },
   {
     name: 'Four Seasons Hotel',
     city: 'Sydney',
-    country: 'Australia',
+    country: 'Australia'
   },
   {
     name: 'Le Meridien',
     city: 'Nice',
-    country: 'France',
+    country: 'France'
   },
   {
     name: 'Apart Neptun',
     city: 'Gdansk',
-    country: 'Poland',
+    country: 'Poland'
   },
   {
     name: 'Lux Isla',
     city: 'Ibiza',
-    country: 'Spain',
+    country: 'Spain'
   },
   {
     name: 'Nox Hostel',
     city: 'London',
-    country: 'UK',
+    country: 'UK'
   },
   {
     name: 'Leonardo Vienna',
     city: 'Vienna',
-    country: 'Austria',
+    country: 'Austria'
   },
   {
     name: 'Adagio Aparthotel',
     city: 'Edinburgh',
-    country: 'UK',
-  },
+    country: 'UK'
+  }
 ];
 
 function resultArray(passedArray) {
@@ -164,7 +164,7 @@ function resultArray(passedArray) {
     if (!arrayWithSeveralValues[passedArray[i].country]) {
       arrayWithSeveralValues[passedArray[i].country] = {
         country: passedArray[i].country,
-        city: [passedArray[i].city],
+        city: [passedArray[i].city]
       };
       firstAddedArray.push(arrayWithSeveralValues[passedArray[i].country]);
     } else {
