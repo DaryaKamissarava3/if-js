@@ -157,7 +157,9 @@ const hotels = [
 ];
 
 function showInformation(str, arrOfHotels) {
-  return arrOfHotels.filter((hotel) => hotel.country === str || hotel.city === str || hotel.name === str);
+  return arrOfHotels.filter(function (hotel) {
+    return hotel.country === str || hotel.city === str || hotel.name === str;
+  })
 }
 
 const searchItem1 = 'Germany';
