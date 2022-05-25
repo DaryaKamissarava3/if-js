@@ -1,36 +1,57 @@
-let user = 'John Doe'
-console.log(user);
-const student = 'Darya';
-console.log(student);
-user = student; // Darya
-console.log(user);
-let test = 1;
-test += test;
-test = `${test}1`; // 21
-console.log(test);
-test--; // 20
-console.log(test);
-test = Boolean(test); // true
-console.log(test);
+const obj1 = {
+    a: 'a',
+    b: {
+        a: 'a',
+        b: 'b',
+        c: {
+            a: 1,
+        },
+    },
+};
+const obj2 = {
+    b: {
+        c: {
+            a: 1,
+        },
+        b: 'b',
+        a: 'a',
+    },
+    a: 'a',
+};
+const obj3 = {
+    a: {
+        c: {
+            a: 'a',
+        },
+        b: 'b',
+        a: 'a',
+    },
+    b: 'b',
+};
 
-const arr = [2, 3, 5, 8];
-let result = 1;
+const deepEqual = (object1, object2) => {
+    const bothAreObject = typeof object1 === 'object' && typeof object2 === 'object';
+    const bothAreNotNull = object1 !== null && object2 !== null;
 
-for (let i = 0; i < arr.length; i++) {
-  result *= arr[i];
-}
+    if (bothAreObject && bothAreNotNull) {
+        for (const key in object1) {
+            if (!object2.hasOwnProperty(key)) {
+                return false;
+            }
+            if (typeof object1[key] === 'object' && typeof object2[key] === 'object') {
+                const result = deepEqual(object1[key], object2[key]);
 
-console.log(result);
-const arr2 = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < arr2.length; i++) {
-  if (arr2[i] > 5 && arr2[i] < 10) {
-    console.log(arr2[i]);
-  }
-}
-
-for (let i = 0; i < arr2.length; i++) {
-  if (arr2[i] % 2 === 0) {
-    console.log(arr2[i]);
-  }
-}
+                if (!result) {
+                    return false;
+                }
+            } else if (object1[key] !== object2[key]) {
+                return false;
+            }
+        }
+        return true;
+    } else {
+        return object1 === object2;
+    }
+};
+console.log(deepEqual(obj1, obj2)); // true
+console.log(deepEqual(obj1, obj3)); // false
