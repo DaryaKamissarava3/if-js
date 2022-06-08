@@ -11,7 +11,7 @@ module.exports = {
         'react'
     ],
     rules: {
-        "prefer-const":"error",
+        "prefer-const": "error",
         "no-console": "off",
         "no-plusplus": "off",
         "no-else-return":"off",
