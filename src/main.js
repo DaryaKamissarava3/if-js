@@ -1,36 +1,28 @@
-let user = 'John Doe'
-console.log(user);
-const student = 'Darya';
-console.log(student);
-user = student; // Darya
-console.log(user);
-let test = 1;
-test += test;
-test = `${test}1`; // 21
-console.log(test);
-test--; // 20
-console.log(test);
-test = Boolean(test); // true
-console.log(test);
-
-const arr = [2, 3, 5, 8];
-let result = 1;
-
-for (let i = 0; i < arr.length; i++) {
-  result *= arr[i];
+const colors = {
+    data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
+    [Symbol.iterator]() {
+        let nextIndex = 0;
+        const next = () => {
+            if (nextIndex < this.data.length) {
+                const value = this.data[nextIndex++];
+                return {value, done: false};
+            }
+            if (nextIndex === this.data.length) {
+                nextIndex = 0;
+                const value = this.data[nextIndex++];
+                return {value, done: false};
+            }
+            return {done: true};
+        };
+        return {next};
+    }
 }
 
-console.log(result);
-const arr2 = [2, 5, 8, 15, 0, 6, 20, 3];
-
-for (let i = 0; i < arr2.length; i++) {
-  if (arr2[i] > 5 && arr2[i] < 10) {
-    console.log(arr2[i]);
-  }
-}
-
-for (let i = 0; i < arr2.length; i++) {
-  if (arr2[i] % 2 === 0) {
-    console.log(arr2[i]);
-  }
+for (let p of document.getElementsByTagName('p')) {
+    let i = 0;
+    const it = colors[Symbol.iterator]();
+    p.onclick = function () {
+        this.style.color = it.next().value;
+        i++;
+    }
 }
