@@ -11,10 +11,13 @@ module.exports = {
         'react'
     ],
     rules: {
-        "prefer-const":"error",
+        "prefer-const": "error",
         "no-console": "off",
         "no-plusplus": "off",
+        "no-else-return":"off",
         "eol-last": "off",
+        "prefer-arrow-callback":"off",
+        "no-param-reassign":"off",
         "max-len": ["error", 100, {"ignoreUrls": true}],
     },
     parserOptions: {
