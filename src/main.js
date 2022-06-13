@@ -4,7 +4,6 @@ const colors = {
     let nextIndex = 0;
 
     const next = () => {
-
       if (nextIndex < this.data.length) {
         const value = this.data[nextIndex++];
         return { value, done: false };
