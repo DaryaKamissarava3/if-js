@@ -104,53 +104,24 @@
             <form action="/" method="post">
               <div class="row-form">
                 <div class="input-destination">
-                  <input
-                    id="destination"
-                    type="text"
-                    name="place"
-                    class="col-destination col-lg-12 col-12"
-                    required
-                  />
-                  <label class="label-destination" for="destination"
-                    >Your destination or hotel name</label
-                  >
+                  <input id="destination" type="text" name="place" class="col-destination col-lg-12 col-12" required/>
+                  <label class="label-destination" for="destination">Your destination or hotel name</label>
                 </div>
                 <div class="input-date-check">
                   <div class="label-date-first">
-                    <input
-                      id="check-in"
-                      type="text"
-                      onfocus="(this.type='date')"
-                      onblur="(this.type='text')"
-                      class="col-date col-lg-12 col-12"
-                      required
-                    />
+                    <input id="check-in" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="col-date col-lg-12 col-12" required/>
                     <label class="label-date" for="check-in">Check-in</label>
                   </div>
                   <div class="label-date-second">
                     <input
-                      id="check-out"
-                      type="text"
-                      onfocus="(this.type='date')"
-                      onblur="(this.type='text')"
-                      class="col-date col-lg-12 col-12"
-                      required
-                    />
+                      id="check-out" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+                      class="col-date col-lg-12 col-12" required/>
                     <label class="label-date" for="check-out">Check-out</label>
                   </div>
                 </div>
-
-                <input
-                  id="count-guests"
-                  type="text"
-                  name="guests"
-                  class="col-guests col-lg-12 col-12"
-                  required
-                />
-                <label id="label-guests" class="label-guests" for="count-guests"
-                  >2 Adults &#8212; 0 Children &#8212; 1 Room</label
-                >
-
+                <input id="count-guests" type="text" name="guests"
+                  class="col-guests col-lg-12 col-12" required/>
+                <label id="label-guests" class="label-guests" for="count-guests">2 Adults &#8212; 0 Children &#8212; 1 Room</label>
                 <button class="col-button button-text col-lg-12 col-12">Search</button>
               </div>
             </form>
@@ -717,9 +688,9 @@
         <div class="popup-counter">
           <span class="popup-inscription">Adults</span>
           <span class="popup-content-buttons">
-            <button class="counter-btn" data-direction="minus">-</button>
-            <input type="text" value="0" class="counter-value" />
-            <button class="counter-btn" data-direction="plus">+</button>
+            <button class="counter-btn-adults" data-direction="minus">-</button>
+            <input type="text" value="0" class="counter-value-adults" />
+            <button class="counter-btn-adults" data-direction="plus">+</button>
           </span>
         </div>
         <div class="popup-counter counter-children">
@@ -733,9 +704,9 @@
         <div class="popup-counter">
           <span class="popup-inscription">Room</span>
           <span class="popup-content-buttons">
-            <button id="children-min" class="counter-btn" data-direction="minus">-</button>
-            <input type="text" value="0" class="counter-value" />
-            <button class="counter-btn" data-direction="plus">+</button>
+            <button id="children-min" class="counter-btn-rooms" data-direction="minus">-</button>
+            <input type="text" value="0" class="counter-value-rooms" />
+            <button class="counter-btn-rooms" data-direction="plusRoom">+</button>
           </span>
         </div>
       </div>

@@ -23,8 +23,8 @@
   background: #fff;
   border-radius: 8px;
   position: absolute;
-  top: 10%;
-  left: 60%;
+  top: 65%;
+  left: 58%;
   transform: translate(-50%, -50%) scale(0);
   transition: 0.5s all;
 }
@@ -44,7 +44,7 @@
   color: #1D1E1F;
 }
 
-.counter-btn,.children-btn {
+.counter-btn-adults,.children-btn,.counter-btn-rooms {
   width: 30px;
   height: 30px;
   color: #fff;
@@ -56,14 +56,17 @@
   transition: 0.5s all;
 }
 
-.counter-btn:hover,
+.counter-btn-adults:hover,
+.counter-btn-rooms:hover,
 .children-btn:hover{
   background: #fff;
   color: #2982ff;
   transition: 0.5s all;
 }
 
-.counter-value,.children-value {
+.counter-value-adults,
+.children-value,
+.counter-value-rooms{
   width: 50px;
   height: 30px;
 }
