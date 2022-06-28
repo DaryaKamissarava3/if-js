@@ -148,3 +148,15 @@ document.querySelector('.children-min').addEventListener('click', (e) => {
     deleteText.remove();
   }
 });
+
+document.querySelector('.children-min').addEventListener('click', e => {
+    let deleteSelect = document.getElementById('id-div-for-select');
+    if (typeof (deleteSelect) != 'undefined' && deleteSelect != null) {
+        deleteSelect.remove();
+    } else {
+        let deleteDivText = document.getElementById('text-block');
+        deleteDivText.remove();
+
+    }
+});
+
