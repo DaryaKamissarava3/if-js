@@ -42,9 +42,9 @@ function counterNumberOfChildren() {
 }
 
 function counterNumberOfRooms() {
-    const direction2 = this.dataset.direction;
+    const direction = this.dataset.direction;
     const inputRooms = this.parentElement.querySelector('.counter-value-rooms');
-    if (direction2 === 'plusRoom') {
+    if (direction === 'plusRoom') {
         if (counterForRooms < 30) {
             counterForRooms = counterForRooms + 1;
         }
