@@ -23,7 +23,7 @@ function counterNumberOfAdults() {
     }
     labelInput.remove();
     inputAdults.value = counterForAdults;
-    inputResult.value = `Adults -${counterForAdults}`;
+    inputResult.value=`Adults-${counterForAdults} Children-${counterForChildren} Room-${counterForRooms}`;
 }
 
 function counterNumberOfChildren() {
@@ -38,7 +38,7 @@ function counterNumberOfChildren() {
     }
     inputChildren.value = counterForChildren;
     labelInput.remove();
-    inputResult.value = `Children - ${counterForChildren}`;
+    inputResult.value=`Adults-${counterForAdults} Children-${counterForChildren} Room-${counterForRooms}`;
 }
 
 function counterNumberOfRooms() {
@@ -53,7 +53,7 @@ function counterNumberOfRooms() {
     }
     labelInput.remove();
     inputRooms.value = counterForRooms;
-    inputResult.value = `Room -${counterForRooms}`;
+    inputResult.value=`Adults-${counterForAdults} Children-${counterForChildren} Room-${counterForRooms}`;
 }
 
 document.querySelector('.children-plus').addEventListener('click', (event) => {
@@ -62,7 +62,7 @@ document.querySelector('.children-plus').addEventListener('click', (event) => {
         const newDivWithText = document.createElement('div');
 
         const newDivText = document.createTextNode(
-            "What is the age of the child you're travelling with ?",
+            "What is the age of the child you're travelling with ?"
         );
         newDivWithText.className = 'popup-text-block';
         newDivWithText.id = 'text-block';
