@@ -3,95 +3,58 @@ let popup = document.querySelector('.popup');
 let openPopupButtons = document.querySelectorAll('#count-guests');
 let closePopupButton = document.querySelector('.close-popup');
 
-openPopupButtons.forEach((button) => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        popupBg.classList.add('active');
-        popup.classList.add('active');
-    });
-});
+let labelInput = document.getElementById('label-guests');
+let inputResult = document.getElementById('count-guests');
 
-openPopupButtons.forEach((button) => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        popupBg.classList.add('active');
-        popup.classList.add('active');
-    });
-});
-
-document.addEventListener('click', (e) => {
-    if (e.target === popupBg) {
-        popupBg.classList.remove('active');
-        popup.classList.remove('active');
-    }
-});
-
-let searchInput = document.getElementById('label-guests');
-
-const buttonForChildren = document.querySelectorAll('.children-btn');
-buttonForChildren.forEach((btn) => {
-    btn.addEventListener('click', function () {
-        const direction = this.dataset.direction;
-        const inputChildren = this.parentElement.querySelector('.children-value');
-        const curValue = +inputChildren.value;
-        let newValueChildren;
-        if (direction === 'plus') {
-            if (curValue < 10) {
-                newValueChildren = curValue + 1;
-            } else {
-                newValueChildren = curValue;
-            }
-        } else {
-            newValueChildren = curValue - 1 > 0 ? curValue - 1 : 0;
-        }
-        inputChildren.value = newValueChildren;
-        searchInput.innerHTML = 'Children ' + '-' + newValueChildren;
-    });
-});
-
-const buttonOfAdults = document.querySelectorAll('.counter-btn-adults');
-buttonOfAdults.forEach((btn) => {
-    btn.addEventListener('click', function () {
-        const direction = this.dataset.direction;
-        const inputAdults = this.parentElement.querySelector('.counter-value-adults');
-        const currentValueAdults = +inputAdults.value;
-        let newValueAdults;
-
-        if (direction === 'plus') {
-            if (currentValueAdults < 30) {
-                newValueAdults = currentValueAdults + 1;
-            } else {
-                newValueAdults = currentValueAdults;
-            }
-        } else {
-            newValueAdults = currentValueAdults - 1 > 0 ? currentValueAdults - 1 : 0;
-        }
-        inputAdults.value = newValueAdults;
-        searchInput.innerHTML = 'Adults ' + '-' + newValueAdults;
-    });
-});
-
-const buttonOFRooms = document.querySelectorAll('.counter-btn-rooms');
-buttonOFRooms.forEach((btn) => {
-    btn.addEventListener('click', function () {
-        const direction2 = this.dataset.direction;
-        const inputRooms = this.parentElement.querySelector('.counter-value-rooms');
-        const currentValueARooms = +inputRooms.value;
-        let newValueRooms;
-        if (direction2 === 'plusRoom') {
-            if (currentValueARooms < 30) {
-                newValueRooms = currentValueARooms + 1;
-            } else {
-                newValueRooms = currentValueARooms;
-            }
-        } else {
-            newValueRooms = currentValueARooms - 1 > 0 ? currentValueARooms - 1 : 0;
-        }
-        inputRooms.value = newValueRooms;
-        searchInput.innerHTML = 'Rooms ' + '-' + newValueRooms;
-    });
-});
+let counterForRooms = 0;
+let counterForChildren = 0;
+let counterForAdults = 0;
 let numberOfChildren = 0;
+
+function counterNumberOfAdults() {
+    const direction = this.dataset.direction;
+    const inputAdults = this.parentElement.querySelector('.counter-value-adults');
+    if (direction === 'plus') {
+        if (counterForAdults < 30) {
+            counterForAdults = counterForAdults + 1;
+        }
+    } else {
+        counterForAdults = counterForAdults - 1 > 0 ? counterForAdults - 1 : 0;
+    }
+    labelInput.remove();
+    inputAdults.value = counterForAdults;
+    inputResult.value = `Adults -${counterForAdults}`;
+}
+
+function counterNumberOfChildren() {
+    const direction = this.dataset.direction;
+    const inputChildren = this.parentElement.querySelector('.children-value');
+    if (direction === 'plus') {
+        if (counterForChildren < 10) {
+            counterForChildren = counterForChildren + 1;
+        }
+    } else {
+        counterForChildren = counterForChildren - 1 > 0 ? counterForChildren - 1 : 0;
+    }
+    inputChildren.value = counterForChildren;
+    labelInput.remove();
+    inputResult.value = `Children - ${counterForChildren}`;
+}
+
+function counterNumberOfRooms() {
+    const direction2 = this.dataset.direction;
+    const inputRooms = this.parentElement.querySelector('.counter-value-rooms');
+    if (direction2 === 'plusRoom') {
+        if (counterForRooms < 30) {
+            counterForRooms = counterForRooms + 1;
+        }
+    } else {
+        counterForRooms = counterForRooms - 1 > 0 ? counterForRooms - 1 : 0;
+    }
+    labelInput.remove();
+    inputRooms.value = counterForRooms;
+    inputResult.value = `Room -${counterForRooms}`;
+}
 
 document.querySelector('.children-plus').addEventListener('click', (event) => {
     if (numberOfChildren === 0) {
@@ -163,5 +126,40 @@ document.querySelector('.children-min').addEventListener('click', (e) => {
         numberOfChildren = 0;
     }
 });
+const buttonForChildren = document.querySelectorAll('.children-btn');
+buttonForChildren.forEach((btn) => {
+    btn.addEventListener('click', counterNumberOfChildren);
+});
 
+const buttonOfAdults = document.querySelectorAll('.counter-btn-adults');
+buttonOfAdults.forEach((btn) => {
+    btn.addEventListener('click', counterNumberOfAdults);
+});
 
+const buttonOFRooms = document.querySelectorAll('.counter-btn-rooms');
+buttonOFRooms.forEach((btn) => {
+    btn.addEventListener('click', counterNumberOfRooms);
+});
+
+openPopupButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        popupBg.classList.add('active');
+        popup.classList.add('active');
+    });
+});
+
+openPopupButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        popupBg.classList.add('active');
+        popup.classList.add('active');
+    });
+});
+
+document.addEventListener('click', (e) => {
+    if (e.target === popupBg) {
+        popupBg.classList.remove('active');
+        popup.classList.remove('active');
+    }
+});
