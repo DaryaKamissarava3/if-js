@@ -470,7 +470,10 @@ input[type="date"] {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
+.card-img{
+  width: 295px;
+  height: 295px;
+}
 .card-item {
   width: 296px;
 }
