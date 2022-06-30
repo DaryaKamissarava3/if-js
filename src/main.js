@@ -1,82 +1,165 @@
-const data = [
-  {
-    id: '71ce9eac-e9b9-44f0-a342-9ff0b565f3b7',
-    name: 'Hotel Leopold',
-    city: 'Saint Petersburg',
-    country: 'Russia',
-    imageUrl:
-      'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-leopold_mflelk.jpg',
-  },
-  {
-    id: 'aa560608-a879-48a7-80b6-deff2806b250',
-    name: 'Apartment Sunshine',
-    city: 'Santa  Cruz de Tenerife',
-    country: 'Spain',
-    imageUrl:
-      'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/apartment-sunshine_vhdlel.jpg',
-  },
-  {
-    id: '1d88fefe-edf1-4cda-844a-babbf29bb2b3',
-    name: 'Villa Kunerad',
-    city: 'Vysokie Tatry',
-    country: 'Slowakia',
-    imageUrl:
-      'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/villa-kunerad_gdbqgv.jpg',
-  },
-  {
-    id: 'a2bf824d-edd8-41f0-8b70-244334086ab4',
-    name: 'Hostel Friendship',
-    city: 'Berlin',
-    country: 'Germany',
-    imageUrl:
-      'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/hostel-friendship_aw6tn7.jpg',
-  },
-  {
-    id: '4024535d-a498-4274-b7cb-f01ada962971',
-    name: 'Radisson Blu Hotel',
-    city: 'Kyiv',
-    country: 'Ukraine',
-    imageUrl:
-      'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/radisson-blu-hotel_jwtowg.jpg',
-  },
-  {
-    id: 'e51e71f6-6baf-4493-b3ae-25dc27cdc238',
-    name: 'Paradise Hotel',
-    city: 'Guadalupe',
-    country: 'Mexico',
-    imageUrl:
-      'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/paradise-hotel_i6whae.jpg',
-  },
-  {
-    id: '87d2b966-2431-43f3-8c0d-2c8723474dfc',
-    name: 'Hotel Grindewald',
-    city: 'Interlaken',
-    country: 'Switzerland',
-    imageUrl:
-      'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-grindewald_zsjsmy.jpg',
-  },
-  {
-    id: '190221c6-b18f-4dba-97de-e35f0e14c023',
-    name: 'The Andaman Resort',
-    city: 'Port Dickson',
-    country: 'Malaysia',
-    imageUrl:
-      'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/the-andaman-resort_d2xksj.jpg',
-  },
-];
+let popupBg = document.querySelector('.popup-bg');
+let popup = document.querySelector('.popup');
+let openPopupButtons = document.querySelectorAll('#count-guests');
+let closePopupButton = document.querySelector('.close-popup');
 
-function showPictures(array) {
-  const card = document.querySelector('.card');
+let labelInput = document.getElementById('label-guests');
+let inputResult = document.getElementById('count-guests');
 
-  array.forEach((item) => {
-    const newCardItem = document.createElement('div');
-    newCardItem.className = 'card-item';
-    card.append(newCardItem);
-    newCardItem.innerHTML = `
-    <img class="card-img col-s-12" src="${item.imageUrl}" alt="picture isn't load">
-    <div class="card-hostel-name">${item.name}</div>
-    <div class="card-hostel-location">${item.city}, ${item.country}</div>`;
-  });
+let counterForRooms = 0;
+let counterForChildren = 0;
+let counterForAdults = 0;
+let numberOfChildren = 0;
+
+function counterNumberOfAdults() {
+    const direction = this.dataset.direction;
+    const inputAdults = this.parentElement.querySelector('.counter-value-adults');
+    if (direction === 'plus') {
+        if (counterForAdults < 30) {
+            counterForAdults = counterForAdults + 1;
+        }
+    } else {
+        counterForAdults = counterForAdults - 1 > 0 ? counterForAdults - 1 : 0;
+    }
+    labelInput.remove();
+    inputAdults.value = counterForAdults;
+    inputResult.value=`Adults-${counterForAdults} Children-${counterForChildren} Room-${counterForRooms}`;
 }
 
-showPictures(data);
+function counterNumberOfChildren() {
+    const direction = this.dataset.direction;
+    const inputChildren = this.parentElement.querySelector('.children-value');
+    if (direction === 'plus') {
+        if (counterForChildren < 10) {
+            counterForChildren = counterForChildren + 1;
+        }
+    } else {
+        counterForChildren = counterForChildren - 1 > 0 ? counterForChildren - 1 : 0;
+    }
+    inputChildren.value = counterForChildren;
+    labelInput.remove();
+    inputResult.value=`Adults-${counterForAdults} Children-${counterForChildren} Room-${counterForRooms}`;
+}
+
+function counterNumberOfRooms() {
+    const direction = this.dataset.direction;
+    const inputRooms = this.parentElement.querySelector('.counter-value-rooms');
+    if (direction === 'plusRoom') {
+        if (counterForRooms < 30) {
+            counterForRooms = counterForRooms + 1;
+        }
+    } else {
+        counterForRooms = counterForRooms - 1 > 0 ? counterForRooms - 1 : 0;
+    }
+    labelInput.remove();
+    inputRooms.value = counterForRooms;
+    inputResult.value=`Adults-${counterForAdults} Children-${counterForChildren} Room-${counterForRooms}`;
+}
+
+document.querySelector('.children-plus').addEventListener('click', (event) => {
+    if (numberOfChildren === 0) {
+        const modulePopup = document.querySelector('.popup');
+        const newDivWithText = document.createElement('div');
+
+        const newDivText = document.createTextNode(
+            "What is the age of the child you're travelling with ?"
+        );
+        newDivWithText.className = 'popup-text-block';
+        newDivWithText.id = 'text-block';
+
+        newDivWithText.appendChild(newDivText);
+        modulePopup.appendChild(newDivWithText);
+        addSelect();
+    } else if (numberOfChildren < 10) {
+        addSelect();
+    }
+});
+
+function addSelect() {
+    let divWithText = document.querySelector('.popup-text-block');
+    let divForSelect = document.createElement('div');
+    divForSelect.className = 'div-for-select';
+    divForSelect.id = 'id-div-for-select';
+    let array = [
+        '1 years old',
+        '2 years old',
+        '3 years old',
+        '4 years old',
+        '5 years old',
+        '6 years old',
+        '7 years old',
+        '8 years old',
+        '9 years old',
+        '10 years old',
+        '11 years old',
+        '12 years old',
+        '13 years old',
+        '14 years old',
+        '15 years old',
+        '16 years old',
+        '17 years old',
+    ];
+    const selectList = document.createElement('select');
+    selectList.id = 'mySelect';
+    selectList.className = 'popup-children-select';
+    divWithText.appendChild(divForSelect);
+    divForSelect.append(selectList);
+
+    for (let i = 0; i < array.length; i++) {
+        const option = document.createElement('option');
+        option.value = array[i];
+        option.text = array[i];
+        selectList.appendChild(option);
+    }
+    numberOfChildren += 1;
+}
+
+document.querySelector('.children-min').addEventListener('click', (e) => {
+    let deleteSelect = document.querySelectorAll('.div-for-select');
+    let deleteText = document.getElementById('text-block');
+    let lengthOfSelectedDivs = deleteSelect.length;
+    if (lengthOfSelectedDivs > 1) {
+        deleteSelect[0].parentNode.removeChild(deleteSelect[0]);
+    } else {
+        deleteSelect[0].parentNode.removeChild(deleteSelect[0]);
+        deleteText.remove();
+        numberOfChildren = 0;
+    }
+});
+const buttonForChildren = document.querySelectorAll('.children-btn');
+buttonForChildren.forEach((btn) => {
+    btn.addEventListener('click', counterNumberOfChildren);
+});
+
+const buttonOfAdults = document.querySelectorAll('.counter-btn-adults');
+buttonOfAdults.forEach((btn) => {
+    btn.addEventListener('click', counterNumberOfAdults);
+});
+
+const buttonOFRooms = document.querySelectorAll('.counter-btn-rooms');
+buttonOFRooms.forEach((btn) => {
+    btn.addEventListener('click', counterNumberOfRooms);
+});
+
+openPopupButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        popupBg.classList.add('active');
+        popup.classList.add('active');
+    });
+});
+
+openPopupButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        popupBg.classList.add('active');
+        popup.classList.add('active');
+    });
+});
+
+document.addEventListener('click', (e) => {
+    if (e.target === popupBg) {
+        popupBg.classList.remove('active');
+        popup.classList.remove('active');
+    }
+});
