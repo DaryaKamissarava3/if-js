@@ -5,11 +5,11 @@
   "main": "src/main.js",
   "scripts": {
     "test": "jest",
-    "prettier": "prettier --write index.html",
+    "prettier": "prettier --write ./src",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src && ./tests --fix",
     "prepare": "husky install",
-    "lint:check": "npm run prettier "
+    "lint:check": "npm run prettier && npm run lint "
   },
   "repository": {
     "type": "git",
