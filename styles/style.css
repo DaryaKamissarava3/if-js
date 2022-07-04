@@ -459,6 +459,19 @@ input[type="date"] {
   font-weight: 400;
 }
 
+/*SECTION-AVAILABLE HOTELS========
+ ===============================*/
+.search-hotels-section {
+  padding-top: 80px;
+  padding-bottom: 0;
+}
+
+.search-hotels-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 /*SECTION-Homes guests loves========
  ===============================*/
 .section--blue {
@@ -470,12 +483,15 @@ input[type="date"] {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.card-img{
+
+.card-img {
   width: 295px;
   height: 295px;
 }
+
 .card-item {
   width: 296px;
+  padding-bottom: 15px;
 }
 
 .card-img-container {
@@ -483,7 +499,7 @@ input[type="date"] {
 }
 
 .card-hostel-name {
-  padding: 24px 0;
+  padding: 12px 0 3px 0;
   font-size: 24px;
   font-weight: 400;
   color: var(--accent-blue-color);
@@ -1035,10 +1051,6 @@ GUESTS REVIEWS
   .card-item {
     padding-right: 20px;
     width: 22%;
-  }
-
-  .card-img {
-    width: 100%;
   }
 
   .card-hostel-name {
