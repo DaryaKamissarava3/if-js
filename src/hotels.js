@@ -4,7 +4,9 @@ let destinationInput = document.getElementById('destination');
 document.getElementById('search-btn').addEventListener('click', showInformation);
 
 const onSearch = async (strForSearch) => {
-    const response = await fetch(` https://fe-student-api.herokuapp.com/api/hotels?search=${strForSearch}`);
+    const response = await fetch(
+        ` https://fe-student-api.herokuapp.com/api/hotels?search=${strForSearch}`
+    );
     return response.json();
 };
 
@@ -26,20 +28,13 @@ async function addAvailableHotels() {
         sectionSubtitle.className = 'section-subtitle underline';
         sectionSubtitle.textContent = 'Available Hotels';
         sectionHeader.appendChild(sectionSubtitle);
-
         info.forEach((item) => {
-            if (
-                item.country.toLowerCase() === textInInput ||
-                item.city.toLowerCase() === textInInput ||
-                item.name.toLowerCase() === textInInput
-            ) {
                 let divForHotels = document.createElement('div');
                 divForHotels.className = 'search-hotels';
                 divForHotels.innerHTML = `<img class="card-img col-s-12" src="${item.imageUrl}" alt="picture isn't load">
                     <div class="card-hostel-name">${item.name}</div>
                     <div class="card-hostel-location">${item.city}, ${item.country}</div>`;
                 divContainer.appendChild(divForHotels);
-            }
         });
     }
 }
