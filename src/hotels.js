@@ -29,12 +29,12 @@ async function addAvailableHotels() {
         sectionSubtitle.textContent = 'Available Hotels';
         sectionHeader.appendChild(sectionSubtitle);
         info.forEach((item) => {
-                let divForHotels = document.createElement('div');
-                divForHotels.className = 'search-hotels';
-                divForHotels.innerHTML = `<img class="card-img col-s-12" src="${item.imageUrl}" alt="picture isn't load">
+            let divForHotels = document.createElement('div');
+            divForHotels.className = 'search-hotels';
+            divForHotels.innerHTML = `<img class="card-img col-s-12" src="${item.imageUrl}" alt="picture isn't load">
                     <div class="card-hostel-name">${item.name}</div>
                     <div class="card-hostel-location">${item.city}, ${item.country}</div>`;
-                divContainer.appendChild(divForHotels);
+            divContainer.appendChild(divForHotels);
         });
     }
 }
@@ -43,8 +43,10 @@ async function showInformation() {
     let containerWithElements = document.getElementById('search-hotels-container');
     if (!containerWithElements) {
         await addAvailableHotels();
-    } else {
-        containerWithElements.remove();
-        await addAvailableHotels();
+        return;
     }
+
+    containerWithElements.remove();
+    await addAvailableHotels();
+
 }
