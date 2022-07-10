@@ -15,6 +15,7 @@ const changeColor = () => {
   };
 };
 
+
 const changeColor1 = changeColor();
 const changeColor2 = changeColor();
 const changeColor3 = changeColor();
@@ -22,3 +23,4 @@ const changeColor3 = changeColor();
 p1.addEventListener('click', changeColor1);
 p2.addEventListener('click', changeColor2);
 p3.addEventListener('click', changeColor3);
+
