@@ -8,15 +8,14 @@ const arrFromFetch = async () => {
     console.log(error.message);
   }
 };
-sessionStorage.clear();
 
 async function checkSessionStorage() {
-  let hotels = sessionStorage.getItem('arrayOfHotels');
+  let hotels = JSON.parse(sessionStorage.getItem('arrayOfHotels'));
   if (!hotels) {
-    const hotels = await arrFromFetch();
+    hotels = await arrFromFetch();
     sessionStorage.setItem('arrayOfHotels', JSON.stringify(hotels));
   }
-  JSON.parse(hotels).forEach((item) => {
+  hotels.forEach((item) => {
     const newCardItem = document.createElement('div');
     newCardItem.className = 'card-item';
     newCardItem.innerHTML = `
