@@ -12,7 +12,7 @@ formEl.addEventListener('submit', async (event) => {
 
   try {
     const res = await fetch('https://fe-student-api.herokuapp.com/api/file', fetchOptions);
-    const parsedResponse=await res.json();
+    const parsedResponse = await res.json();
     console.log(parsedResponse);
   } catch (error) {
     console.log(error);
