@@ -1,20 +1,36 @@
-const cardWithPictures = document.getElementById('card');
+let user = 'John Doe';
+console.log(user);
+const student = 'Darya';
+console.log(student);
+user = student; // Darya
+console.log(user);
+let test = 1;
+test += test;
+test = `${test}1`; // 21
+console.log(test);
+test--; // 20
+console.log(test);
+test = Boolean(test); // true
+console.log(test);
 
-function addPictureToBlock() {
-  fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
-    .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-      result.forEach((item) => {
-        const newCardItem = document.createElement('div');
-        newCardItem.className = 'card-item';
-        newCardItem.innerHTML = `
-    <img class="card-img col-s-12" src="${item.imageUrl}" alt="picture isn't load">
-    <div class="card-hostel-name">${item.name}</div>
-    <div class="card-hostel-location">${item.city}, ${item.country}</div>`;
-        cardWithPictures.appendChild(newCardItem);
-      });
-    });
+const arr = [2, 3, 5, 8];
+let result = 1;
+
+for (let i = 0; i < arr.length; i++) {
+  result *= arr[i];
 }
 
-addPictureToBlock();
+console.log(result);
+const arr2 = [2, 5, 8, 15, 0, 6, 20, 3];
+
+for (let i = 0; i < arr2.length; i++) {
+  if (arr2[i] > 5 && arr2[i] < 10) {
+    console.log(arr2[i]);
+  }
+}
+
+for (let i = 0; i < arr2.length; i++) {
+  if (arr2[i] % 2 === 0) {
+    console.log(arr2[i]);
+  }
+}
