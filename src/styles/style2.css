@@ -41,10 +41,12 @@
 }
 
 .popup-inscription {
-  color: #1D1E1F;
+  color: #1d1e1f;
 }
 
-.counter-btn-adults,.children-btn,.counter-btn-rooms {
+.counter-btn-adults,
+.children-btn,
+.counter-btn-rooms {
   width: 30px;
   height: 30px;
   color: #fff;
@@ -58,7 +60,7 @@
 
 .counter-btn-adults:hover,
 .counter-btn-rooms:hover,
-.children-btn:hover{
+.children-btn:hover {
   background: #fff;
   color: #2982ff;
   transition: 0.5s all;
@@ -66,28 +68,28 @@
 
 .counter-value-adults,
 .children-value,
-.counter-value-rooms{
+.counter-value-rooms {
   width: 50px;
   height: 30px;
 }
 
-.popup-text-block{
-  color: #1D1E1F;
+.popup-text-block {
+  color: #1d1e1f;
   background-color: #ffffff;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
-.div-for-select{
+.div-for-select {
   padding-left: 10px;
   padding-top: 5px;
   width: 200px;
   height: 50px;
   background-color: #ffffff;
 }
-.popup-children{
+.popup-children {
   padding-left: 10px;
 }
-.popup-children-select{
+.popup-children-select {
   height: 30px;
   border: 2px solid #2982ff;
 }

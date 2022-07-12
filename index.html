@@ -664,9 +664,9 @@
     <div class="popup-counter">
       <span class="popup-inscription">Adults</span>
       <span class="popup-content-buttons">
-            <button class="counter-btn-adults" data-direction="minus">-</button>
-            <input type="text" value="0" class="counter-value-adults"/>
-            <button class="counter-btn-adults" data-direction="plus">+</button>
+            <button id="min-adults" class="counter-btn-adults" data-direction="minus">-</button>
+            <input id="adults-inp" type="text" value="0" class="counter-value-adults"/>
+            <button id="plus-adults" class="counter-btn-adults" data-direction="plus">+</button>
           </span>
     </div>
     <div class="popup-counter counter-children">
@@ -680,7 +680,7 @@
     <div class="popup-counter">
       <span class="popup-inscription">Room</span>
       <span class="popup-content-buttons">
-            <button id="children-min" class="counter-btn-rooms" data-direction="minus">-</button>
+            <button class="counter-btn-rooms" data-direction="minus">-</button>
             <input type="text" value="0" class="counter-value-rooms"/>
             <button class="counter-btn-rooms" data-direction="plusRoom">+</button>
           </span>
@@ -688,6 +688,7 @@
   </div>
 </div>
 <script src="src/searchAvailableHotels.js"></script>
+<script src="src/modal.js"></script>
 </body>
 </html>
 

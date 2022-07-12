@@ -1,7 +1,7 @@
 function splitString(stringToSplit, separator) {
-    const arrayOfStrings = stringToSplit.split(separator).reverse();
+  const arrayOfStrings = stringToSplit.split(separator).reverse();
 
-    return arrayOfStrings.join('.');
+  return arrayOfStrings.join('.');
 }
 
 const date = '2020-11-26';

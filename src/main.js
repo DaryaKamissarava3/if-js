@@ -1,4 +1,4 @@
-let user = 'John Doe'
+let user = 'John Doe';
 console.log(user);
 const student = 'Darya';
 console.log(student);
