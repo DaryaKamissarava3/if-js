@@ -1,3 +1,5 @@
+import bubbleSort from "./modules/bubbleSort.js";
+
 const cardWithPictures = document.getElementById('card');
 
 const arrFromFetch = async () => {
@@ -15,6 +17,8 @@ async function checkSessionStorage() {
     hotels = await arrFromFetch();
     sessionStorage.setItem('arrayOfHotels', JSON.stringify(hotels));
   }
+  console.log(hotels[0].name)
+  bubbleSort(hotels);
   hotels.forEach((item) => {
     const newCardItem = document.createElement('div');
     newCardItem.className = 'card-item';

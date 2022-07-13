@@ -19,7 +19,7 @@ function counterNumberOfAdults() {
       counterForAdults = counterForAdults + 1;
     }
   } else {
-    counterForAdults = counterForAdults - 1 > 0 ? counterForAdults - 1 : 0;
+    counterForAdults = counterForAdults - 1 > 0 ? counterForAdults - 1 : 1;
   }
   labelInput.remove();
   inputAdults.value = counterForAdults;
@@ -50,7 +50,7 @@ function counterNumberOfRooms() {
       counterForRooms = counterForRooms + 1;
     }
   } else {
-    counterForRooms = counterForRooms - 1 > 0 ? counterForRooms - 1 : 0;
+    counterForRooms = counterForRooms - 1 > 0 ? counterForRooms - 1 : 1;
   }
   labelInput.remove();
   inputRooms.value = counterForRooms;
