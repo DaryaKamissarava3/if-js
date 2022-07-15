@@ -1,6 +1,6 @@
 let popupBg = document.querySelector('.popup-bg');
 let popup = document.querySelector('.popup');
-let openPopupButtons = document.querySelectorAll('#count-guests');
+let openPopupButton = document.querySelector('#count-guests');
 
 let labelInput = document.getElementById('label-guests');
 let inputResult = document.getElementById('count-guests');
@@ -126,6 +126,7 @@ document.querySelector('.children-min').addEventListener('click', (e) => {
     numberOfChildren = 0;
   }
 });
+
 const buttonForChildren = document.querySelectorAll('.children-btn');
 buttonForChildren.forEach((btn) => {
   btn.addEventListener('click', counterNumberOfChildren);
@@ -141,20 +142,16 @@ buttonOFRooms.forEach((btn) => {
   btn.addEventListener('click', counterNumberOfRooms);
 });
 
-openPopupButtons.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
-    popupBg.classList.add('active');
-    popup.classList.add('active');
-  });
+openPopupButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  popupBg.classList.add('active');
+  popup.classList.add('active');
 });
 
-openPopupButtons.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
-    popupBg.classList.add('active');
-    popup.classList.add('active');
-  });
+openPopupButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  popupBg.classList.add('active');
+  popup.classList.add('active');
 });
 
 document.addEventListener('click', (e) => {

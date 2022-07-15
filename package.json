@@ -2,7 +2,7 @@
   "name": "if-js-2",
   "version": "1.0.0",
   "description": "",
-  "main": "src/main.js",
+  "main": "src/js/main.js",
   "scripts": {
     "test": "jest",
     "prettier": "prettier --write ./src",
