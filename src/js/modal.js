@@ -1,7 +1,6 @@
 let popupBg = document.querySelector('.popup-bg');
 let popup = document.querySelector('.popup');
 let openPopupButtons = document.querySelectorAll('#count-guests');
-let closePopupButton = document.querySelector('.close-popup');
 
 let labelInput = document.getElementById('label-guests');
 let inputResult = document.getElementById('count-guests');
