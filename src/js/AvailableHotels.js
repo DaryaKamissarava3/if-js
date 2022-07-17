@@ -1,18 +1,36 @@
 let sectionForAvailableHotels = document.getElementById('section');
+let btn = document.getElementById('search-btn');
 let destinationInput = document.getElementById('destination');
+let peopleInput = document.getElementById('count-guests');
 
-document.getElementById('search-btn').addEventListener('click', showInformation);
-
-const onSearch = async (strForSearch) => {
+const onSearch = async (country, adults, children, rooms) => {
   const response = await fetch(
-    ` https://fe-student-api.herokuapp.com/api/hotels?search=${strForSearch}`,
+    ` https://fe-student-api.herokuapp.com/api/hotels?search=${country}&adults=${adults}&children=${children}&rooms=${rooms}`,
   );
   return response.json();
 };
 
-async function addAvailableHotels() {
+btn.addEventListener('click', showInformation);
+
+async function searchForHotels() {
+  let resOfPeople = peopleInput.value;
+
+  let numbersArrFromPeopleInput = resOfPeople.match(/\d+/g);
+  let numberOfAdults = numbersArrFromPeopleInput[0];
+  let numberOfRooms = numbersArrFromPeopleInput[numbersArrFromPeopleInput.length - 1];
+
+  let ageOfChildren;
+  let toNumberAgeOfChildren;
+  let arr = [];
+  let selects = document.querySelectorAll('#id-div-for-select select');
+  selects.forEach((element) => {
+    ageOfChildren = element.value;
+    toNumberAgeOfChildren = parseInt(ageOfChildren.match(/\d+/));
+    arr.push(toNumberAgeOfChildren);
+  });
+
   let textInInput = destinationInput.value.toLowerCase();
-  const info = await onSearch(textInInput);
+  const info = await onSearch(textInInput, numberOfAdults, arr, numberOfRooms);
   if (info.length === 0) {
     alert('No such hotel');
     return;
@@ -42,9 +60,9 @@ async function addAvailableHotels() {
 async function showInformation() {
   let containerWithElements = document.getElementById('search-hotels-container');
   if (!containerWithElements) {
-    await addAvailableHotels();
+    await searchForHotels();
     return;
   }
   containerWithElements.remove();
-  await addAvailableHotels();
+  await searchForHotels();
 }

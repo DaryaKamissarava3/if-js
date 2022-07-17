@@ -1,7 +1,6 @@
 let popupBg = document.querySelector('.popup-bg');
 let popup = document.querySelector('.popup');
-let openPopupButtons = document.querySelectorAll('#count-guests');
-let closePopupButton = document.querySelector('.close-popup');
+let openPopupButton = document.querySelector('#count-guests');
 
 let labelInput = document.getElementById('label-guests');
 let inputResult = document.getElementById('count-guests');
@@ -19,7 +18,7 @@ function counterNumberOfAdults() {
       counterForAdults = counterForAdults + 1;
     }
   } else {
-    counterForAdults = counterForAdults - 1 > 0 ? counterForAdults - 1 : 0;
+    counterForAdults = counterForAdults - 1 > 0 ? counterForAdults - 1 : 1;
   }
   labelInput.remove();
   inputAdults.value = counterForAdults;
@@ -50,7 +49,7 @@ function counterNumberOfRooms() {
       counterForRooms = counterForRooms + 1;
     }
   } else {
-    counterForRooms = counterForRooms - 1 > 0 ? counterForRooms - 1 : 0;
+    counterForRooms = counterForRooms - 1 > 0 ? counterForRooms - 1 : 1;
   }
   labelInput.remove();
   inputRooms.value = counterForRooms;
@@ -127,6 +126,7 @@ document.querySelector('.children-min').addEventListener('click', (e) => {
     numberOfChildren = 0;
   }
 });
+
 const buttonForChildren = document.querySelectorAll('.children-btn');
 buttonForChildren.forEach((btn) => {
   btn.addEventListener('click', counterNumberOfChildren);
@@ -142,20 +142,16 @@ buttonOFRooms.forEach((btn) => {
   btn.addEventListener('click', counterNumberOfRooms);
 });
 
-openPopupButtons.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
-    popupBg.classList.add('active');
-    popup.classList.add('active');
-  });
+openPopupButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  popupBg.classList.add('active');
+  popup.classList.add('active');
 });
 
-openPopupButtons.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
-    popupBg.classList.add('active');
-    popup.classList.add('active');
-  });
+openPopupButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  popupBg.classList.add('active');
+  popup.classList.add('active');
 });
 
 document.addEventListener('click', (e) => {
