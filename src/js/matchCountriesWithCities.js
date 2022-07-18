@@ -1,4 +1,4 @@
-const hotels = [
+let hotels = [
   {
     name: 'Hotel Leopold',
     city: 'Saint Petersburg',
