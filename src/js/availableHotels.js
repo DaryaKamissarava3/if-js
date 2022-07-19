@@ -28,10 +28,17 @@ async function searchForHotels() {
   const info = await fetchData(
     ` https://fe-student-api.herokuapp.com/api/hotels?search=${textInInput}&adults=${numberOfAdults}&children=${arr}&rooms=${numberOfRooms}`,
   );
+
+  if(info===null){
+    alert('Error in url');
+    return;
+  }
+
   if (info.length === 0) {
     alert('No such hotel');
     return;
   }
+
   sectionForAvailableHotels.className = 'section search-hotels-section';
   let divContainer = document.createElement('div');
   let sectionHeader = document.createElement('div');

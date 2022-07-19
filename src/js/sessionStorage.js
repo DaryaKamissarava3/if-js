@@ -9,8 +9,8 @@ async function checkSessionStorage() {
     hotels = await fetchData('https://fe-student-api.herokuapp.com/api/hotels/popular');
     sessionStorage.setItem('arrayOfHotels', JSON.stringify(hotels));
   }
-  bubbleSort(hotels);
-  hotels.forEach((item) => {
+  let sortArray=bubbleSort(hotels);
+  sortArray.forEach((item) => {
     const newCardItem = document.createElement('div');
     newCardItem.className = 'card-item';
     newCardItem.innerHTML = `
