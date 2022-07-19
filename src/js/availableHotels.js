@@ -25,7 +25,9 @@ async function searchForHotels() {
   });
 
   let textInInput = destinationInput.value.toLowerCase();
-  const info =await fetchData(` https://fe-student-api.herokuapp.com/api/hotels?search=${textInInput}&adults=${numberOfAdults}&children=${arr}&rooms=${numberOfRooms}`);
+  const info = await fetchData(
+    ` https://fe-student-api.herokuapp.com/api/hotels?search=${textInInput}&adults=${numberOfAdults}&children=${arr}&rooms=${numberOfRooms}`,
+  );
   if (info.length === 0) {
     alert('No such hotel');
     return;
