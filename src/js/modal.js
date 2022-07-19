@@ -61,9 +61,7 @@ document.querySelector('.children-plus').addEventListener('click', (event) => {
     const modulePopup = document.querySelector('.popup');
     const newDivWithText = document.createElement('div');
 
-    const newDivText = document.createTextNode(
-      "What is the age of the child you're travelling with ?",
-    );
+    const newDivText = document.createTextNode("What is the age of the child you're travelling with ?");
     newDivWithText.className = 'popup-text-block';
     newDivWithText.id = 'text-block';
 

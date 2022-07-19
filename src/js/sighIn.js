@@ -1,6 +1,6 @@
-let modal = document.querySelector('.modal');
-let modalInner = document.querySelector('.modal-inner');
-let openSignIn = document.querySelector('#sign-in-icon');
+const modal = document.querySelector('.modal');
+const modalInner = document.querySelector('.modal-inner');
+const openSignIn = document.querySelector('#sign-in-icon');
 
 openSignIn.addEventListener('click', (e) => {
   e.preventDefault();

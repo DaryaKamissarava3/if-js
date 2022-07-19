@@ -9,7 +9,7 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src && ./tests --fix",
     "prepare": "husky install",
-    "lint:check": "npm run prettier "
+    "lint:check": "npm run prettier"
   },
   "repository": {
     "type": "git",

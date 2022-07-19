@@ -3,11 +3,7 @@ import { max, min, max2, min2 } from '../modules/functions.js';
 function palindrome(str) {
   const changeString = str.toLowerCase();
   const reverseString = changeString.split('').reverse().join('');
-  if (changeString === reverseString) {
-    return true;
-  } else {
-    return false;
-  }
+  return changeString === reverseString;
 }
 
 console.log(palindrome('ctc'));
