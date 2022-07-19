@@ -1,33 +1,4 @@
-const obj1 = {
-  a: 'a',
-  b: {
-    a: 'a',
-    b: 'b',
-    c: {
-      a: 1,
-    },
-  },
-};
-const obj2 = {
-  b: {
-    c: {
-      a: 1,
-    },
-    b: 'b',
-    a: 'a',
-  },
-  a: 'a',
-};
-const obj3 = {
-  a: {
-    c: {
-      a: 'a',
-    },
-    b: 'b',
-    a: 'a',
-  },
-  b: 'b',
-};
+import { obj1, obj2, obj3 } from '../modules/objects.js';
 
 const deepEqual = (object1, object2) => {
   const bothAreObject = typeof object1 === 'object' && typeof object2 === 'object';
@@ -53,5 +24,6 @@ const deepEqual = (object1, object2) => {
     return object1 === object2;
   }
 };
+
 console.log(deepEqual(obj1, obj2)); // true
 console.log(deepEqual(obj1, obj3)); // false

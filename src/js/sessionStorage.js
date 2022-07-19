@@ -1,15 +1,7 @@
 import bubbleSort from '../modules/bubbleSort.js';
+import { arrFromFetch } from '../modules/requests.js';
 
 const cardWithPictures = document.getElementById('card');
-
-const arrFromFetch = async () => {
-  try {
-    const response = await fetch(`https://fe-student-api.herokuapp.com/api/hotels/popular`);
-    return response.json();
-  } catch (error) {
-    console.log(error.message);
-  }
-};
 
 async function checkSessionStorage() {
   let hotels = JSON.parse(sessionStorage.getItem('arrayOfHotels'));

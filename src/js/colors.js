@@ -1,8 +1,8 @@
+import { colors } from '../modules/arrays.js';
+
 const p1 = document.getElementById('text1');
 const p2 = document.getElementById('text2');
 const p3 = document.getElementById('text3');
-
-const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 
 const changeColor = () => {
   let i = 0;

@@ -1,4 +1,4 @@
-import {sum} from '../src/js/main';
+import {sum} from '../src/js/sum';
 
 describe('Finding the sum of elements',()=>{
 

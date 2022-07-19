@@ -1,3 +1,5 @@
+import { max, min, max2, min2 } from '../modules/functions.js';
+
 function palindrome(str) {
   const changeString = str.toLowerCase();
   const reverseString = changeString.split('').reverse().join('');
@@ -9,30 +11,6 @@ function palindrome(str) {
 }
 
 console.log(palindrome('ctc'));
-
-function min(a, b) {
-  if (a > b) {
-    return b;
-  } else {
-    return a;
-  }
-}
-
-function max(a, b) {
-  if (a > b) {
-    return a;
-  } else {
-    return b;
-  }
-}
-
-function max2(a, b) {
-  return a > b ? a : b;
-}
-
-function min2(a, b) {
-  return a > b ? b : a;
-}
 
 console.log(max(3, 5));
 console.log(min(3, 5));

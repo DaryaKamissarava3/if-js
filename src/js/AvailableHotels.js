@@ -1,14 +1,9 @@
+import { onSearch } from '../modules/requests.js';
+
 let sectionForAvailableHotels = document.getElementById('section');
 let btn = document.getElementById('search-btn');
 let destinationInput = document.getElementById('destination');
 let peopleInput = document.getElementById('count-guests');
-
-const onSearch = async (country, adults, children, rooms) => {
-  const response = await fetch(
-    ` https://fe-student-api.herokuapp.com/api/hotels?search=${country}&adults=${adults}&children=${children}&rooms=${rooms}`,
-  );
-  return response.json();
-};
 
 btn.addEventListener('click', showInformation);
 
