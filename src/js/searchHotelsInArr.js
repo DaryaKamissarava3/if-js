@@ -1,4 +1,4 @@
-import { hotels } from '../modules/arrays.js';
+import { hotels } from '../constants/arrays.js';
 
 function showInformation(str, arrOfHotels) {
   return arrOfHotels.filter((hotel) => {

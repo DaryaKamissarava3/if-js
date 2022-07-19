@@ -1,4 +1,4 @@
-import { colors } from '../modules/arrays.js';
+import { colors } from '../constants/arrays.js';
 
 const p1 = document.getElementById('text1');
 const p2 = document.getElementById('text2');

@@ -1,12 +1,12 @@
 import bubbleSort from '../modules/bubbleSort.js';
-import { arrFromFetch } from '../modules/requests.js';
+import { fetchData } from '../modules/requests.js';
 
 const cardWithPictures = document.getElementById('card');
 
 async function checkSessionStorage() {
   let hotels = JSON.parse(sessionStorage.getItem('arrayOfHotels'));
   if (!hotels) {
-    hotels = await arrFromFetch();
+    hotels = await fetchData('https://fe-student-api.herokuapp.com/api/hotels/popular');
     sessionStorage.setItem('arrayOfHotels', JSON.stringify(hotels));
   }
   bubbleSort(hotels);

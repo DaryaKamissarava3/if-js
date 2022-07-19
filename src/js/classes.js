@@ -1,4 +1,4 @@
-import { studentsData } from '../modules/arrays.js';
+import { studentsData } from '../constants/arrays.js';
 
 class User {
   constructor(firstName, lastName) {
