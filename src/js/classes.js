@@ -35,7 +35,9 @@ class Students {
   getInfo() {
     this.students.sort(this.sortByField('admissionYear'));
     this.students.forEach(
-      (student) => `${student.firstName} ${student.lastName} ${student.courseName} ${student.admissionYear}`);
+      (student) =>
+        `${student.firstName} ${student.lastName} ${student.courseName} ${student.admissionYear}`,
+    );
     return this.students.map(
       (student) =>
         `${student.firstName} ${student.lastName} - ${student.courseName} ${
