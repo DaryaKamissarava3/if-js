@@ -1,3 +1,5 @@
+import { fetchData } from '../modules/requests.js';
+
 const formEl = document.getElementById('form');
 
 formEl.addEventListener('submit', async (event) => {
@@ -10,11 +12,6 @@ formEl.addEventListener('submit', async (event) => {
     body: fd,
   };
 
-  try {
-    const res = await fetch('https://fe-student-api.herokuapp.com/api/file', fetchOptions);
-    const parsedResponse = await res.json();
-    console.log(parsedResponse);
-  } catch (error) {
-    console.log(error);
-  }
+  const res = await fetchData('https://fe-student-api.herokuapp.com/api/file', fetchOptions);
+  console.log(res);
 });

@@ -1,7 +1,7 @@
-let calendarModal = document.querySelector('.calendar');
-let modalInnerCalendar = document.querySelector('.calendar-inner');
-let openCalendarCheckIn = document.querySelector('#check-in');
-let openCalendarCheckOut = document.querySelector('#check-out');
+const calendarModal = document.querySelector('.calendar');
+const modalInnerCalendar = document.querySelector('.calendar-inner');
+const openCalendarCheckIn = document.querySelector('#check-in');
+const openCalendarCheckOut = document.querySelector('#check-out');
 
 function clickCalendarBtn(inOrOut) {
   inOrOut.addEventListener('click', (e) => {
@@ -21,7 +21,7 @@ function clickCalendarBtn(inOrOut) {
 clickCalendarBtn(openCalendarCheckIn);
 clickCalendarBtn(openCalendarCheckOut);
 
-let Cal = function (divId) {
+const Cal = function (divId) {
   this.divId = divId;
   this.DaysOfWeek = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
   this.Months = [
@@ -38,7 +38,7 @@ let Cal = function (divId) {
     'November',
     'December',
   ];
-  let d = new Date();
+  const d = new Date();
   this.currMonth = d.getMonth('9');
   this.currYear = d.getFullYear('22');
   this.currDay = d.getDate('3');
@@ -47,9 +47,9 @@ let Cal = function (divId) {
 Cal.prototype.nextMonth = function () {
   if (this.currMonth === 11) {
     this.currMonth = 0;
-    this.currYear = this.currYear + 1;
+    this.currYear += 1;
   } else {
-    this.currMonth = this.currMonth + 1;
+    this.currMonth += 1;
   }
   this.showCurrentMonth();
 };
@@ -57,9 +57,9 @@ Cal.prototype.nextMonth = function () {
 Cal.prototype.previousMonth = function () {
   if (this.currMonth === 0) {
     this.currMonth = 11;
-    this.currYear = this.currYear - 1;
+    this.currYear -= 1;
   } else {
-    this.currMonth = this.currMonth - 1;
+    this.currMonth -= 1;
   }
   this.showCurrentMonth();
 };
@@ -69,10 +69,11 @@ Cal.prototype.showCurrentMonth = function () {
 };
 
 Cal.prototype.showMonthYear = function (y, m) {
-  let d = new Date(),
-    firstDayOfMonth = new Date(y, m, 7).getDay(),
-    lastDateOfMonth = new Date(y, m + 1, 0).getDate(),
-    lastDayOfLastMonth = m === 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
+  const d = new Date();
+  const firstDayOfMonth = new Date(y, m, 7).getDay();
+  const lastDateOfMonth = new Date(y, m + 1, 0).getDate();
+  const lastDayOfLastMonth =
+    m === 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
 
   let html = '<table>';
   html += '<thead><tr>';
@@ -99,9 +100,9 @@ Cal.prototype.showMonthYear = function (y, m) {
       }
     }
 
-    let chk = new Date();
-    let chkY = chk.getFullYear();
-    let chkM = chk.getMonth();
+    const chk = new Date();
+    const chkY = chk.getFullYear();
+    const chkM = chk.getMonth();
     if (chkY === this.currYear && chkM === this.currMonth && i === this.currDay) {
       html += '<td class="today">' + i + '</td>';
     } else {
@@ -124,8 +125,12 @@ Cal.prototype.showMonthYear = function (y, m) {
   document.getElementById(this.divId).innerHTML = html;
 };
 
+function getId(id) {
+  return document.getElementById(id);
+}
+
 window.onload = function () {
-  let c = new Cal('divCal');
+  const c = new Cal('divCal');
   c.showCurrentMonth();
 
   getId('btnNext').onclick = function () {
@@ -135,7 +140,3 @@ window.onload = function () {
     c.previousMonth();
   };
 };
-
-function getId(id) {
-  return document.getElementById(id);
-}

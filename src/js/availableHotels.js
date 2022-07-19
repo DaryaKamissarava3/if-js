@@ -1,14 +1,9 @@
+import { fetchData } from '../modules/requests.js';
+
 let sectionForAvailableHotels = document.getElementById('section');
 let btn = document.getElementById('search-btn');
 let destinationInput = document.getElementById('destination');
 let peopleInput = document.getElementById('count-guests');
-
-const onSearch = async (country, adults, children, rooms) => {
-  const response = await fetch(
-    ` https://fe-student-api.herokuapp.com/api/hotels?search=${country}&adults=${adults}&children=${children}&rooms=${rooms}`,
-  );
-  return response.json();
-};
 
 btn.addEventListener('click', showInformation);
 
@@ -30,11 +25,15 @@ async function searchForHotels() {
   });
 
   let textInInput = destinationInput.value.toLowerCase();
-  const info = await onSearch(textInInput, numberOfAdults, arr, numberOfRooms);
+  const info = await fetchData(
+    ` https://fe-student-api.herokuapp.com/api/hotels?search=${textInInput}&adults=${numberOfAdults}&children=${arr}&rooms=${numberOfRooms}`,
+  );
+
   if (info.length === 0) {
     alert('No such hotel');
     return;
   }
+
   sectionForAvailableHotels.className = 'section search-hotels-section';
   let divContainer = document.createElement('div');
   let sectionHeader = document.createElement('div');
