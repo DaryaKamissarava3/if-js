@@ -26,7 +26,7 @@ async function searchForHotels() {
 
   let textInInput = destinationInput.value.toLowerCase();
   const info = await fetchData(
-    ` https://fe-tudent-api.herokuapp.com/api/hotels?search=${textInInput}&adults=${numberOfAdults}&children=${arr}&rooms=${numberOfRooms}`,
+    ` https://fe-student-api.herokuapp.com/api/hotels?search=${textInInput}&adults=${numberOfAdults}&children=${arr}&rooms=${numberOfRooms}`,
   );
 
   if (info.length === 0) {
